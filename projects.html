@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Maliha Tabassum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #FBF3E9;
+    --paper-dim: #F3E2CB;
+    --ink: #3B2A20;
+    --ink-soft: #8A6E56;
+    --line: #E7CFAC;
+    --forest: #BD5A2E;
+    --forest-deep: #7C3416;
+    --gold: #C99958;
+    --white: #FFFFFF;
+    --radius: 2px;
+    --maxw: 980px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', -apple-system, sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Source Serif 4', Georgia, serif;
+    font-weight:600;
+    margin:0;
+    color:var(--forest-deep);
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  section{padding:64px 0;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:10px;
+    display:block;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,248,243,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .nav-brand{ display:flex; align-items:center; gap:10px; }
+  .nav-avatar{
+    width:34px; height:34px; border-radius:50%;
+    overflow:hidden; flex-shrink:0;
+    border:2px solid var(--gold);
+  }
+  .nav-avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .nav-name{
+    font-family:'Source Serif 4', serif;
+    font-weight:600;
+    font-size:19px;
+    color:var(--forest-deep);
+    letter-spacing:0.01em;
+  }
+  .nav-links{
+    display:flex; gap:32px; list-style:none; margin:0; padding:0;
+    font-size:14.5px; font-weight:500;
+  }
+  .nav-links a{
+    color:var(--ink-soft);
+    padding:4px 2px;
+    border-bottom:1px solid transparent;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .nav-links a:hover, .nav-links a.active{ color:var(--forest); border-color:var(--gold); }
+  .nav-toggle{ display:none; }
+
+  /* ---------- Page Header ---------- */
+  .page-header{
+    padding:88px 0 56px;
+    border-bottom:1px solid var(--line);
+  }
+  .page-title{
+    font-size:clamp(38px, 5.5vw, 56px);
+    line-height:1.05;
+    letter-spacing:-0.01em;
+  }
+  .page-rule{
+    width:64px; height:3px; background:var(--gold);
+    margin:24px 0 22px;
+  }
+  .page-lede{
+    max-width:640px;
+    font-size:16.5px;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- Project Blocks ---------- */
+  .projects-list{ }
+  .project-block{
+    padding:56px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .project-block:last-child{ border-bottom:none; padding-bottom:24px; }
+
+  .project-number{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.1em;
+    color:var(--gold);
+    display:block;
+    margin-bottom:12px;
+  }
+  .project-name{
+    font-size:28px;
+    margin-bottom:16px;
+  }
+  .project-overview{
+    max-width:700px;
+    font-size:16px;
+    color:var(--ink);
+    margin-bottom:22px;
+  }
+
+  .project-subhead{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+    font-weight:500;
+    margin-bottom:12px;
+    display:block;
+  }
+
+  .project-highlights{
+    list-style:none;
+    margin:0 0 26px;
+    padding:0;
+    max-width:720px;
+  }
+  .project-highlights li{
+    position:relative;
+    padding-left:22px;
+    margin-bottom:11px;
+    font-size:15px;
+    color:var(--ink);
+  }
+  .project-highlights li:last-child{ margin-bottom:0; }
+  .project-highlights li::before{
+    content:"";
+    position:absolute;
+    left:0; top:8px;
+    width:6px; height:6px;
+    background:var(--forest);
+  }
+
+  .project-tools-row{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .project-tools-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+    margin-right:4px;
+  }
+  .tool-chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    padding:6px 11px;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    color:var(--forest-deep);
+  }
+
+  footer{
+    padding:30px 0;
+    text-align:center;
+    font-size:13px;
+    color:var(--ink-soft);
+    font-family:'IBM Plex Mono', monospace;
+    border-top:1px solid var(--line);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 760px){
+    .nav-links{
+      position:fixed; top:60px; right:0; left:0;
+      background:var(--paper);
+      flex-direction:column;
+      gap:0;
+      border-bottom:1px solid var(--line);
+      max-height:0; overflow:hidden;
+      transition:max-height .25s ease;
+    }
+    .nav-links.open{ max-height:240px; }
+    .nav-links li{ border-top:1px solid var(--line); }
+    .nav-links a{ display:block; padding:14px 28px; }
+    .nav-toggle{
+      display:block;
+      background:none; border:1px solid var(--line);
+      font-family:'IBM Plex Mono', monospace;
+      font-size:12px; padding:6px 10px; cursor:pointer;
+      color:var(--forest-deep);
+    }
+    .page-header{ padding:64px 0 40px; }
+    .project-block{ padding:40px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap nav">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-avatar"><img src="assets/profile.png" alt=""></span>
+      <span class="nav-name">Maliha Tabassum</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">Menu</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="index.html#news">Publications</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="wrap">
+      <span class="eyebrow">Applied Work</span>
+      <h1 class="page-title">Research Projects</h1>
+      <div class="page-rule"></div>
+      <p class="page-lede">
+        A selection of projects spanning front-end engineering, secure systems design, and end-to-end
+        machine learning — reflecting my work across both applied software development and data-driven
+        research.
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects List -->
+  <section>
+    <div class="wrap projects-list">
+
+      <!-- Project 1 -->
+      <article class="project-block">
+        <span class="project-number">01 / Web Application</span>
+        <h2 class="project-name">JobGenie</h2>
+        <p class="project-overview">
+          A web application focused on enhancing user experience and optimizing front-end workflows for
+          job seekers, built around the principle that finding a job should feel simple rather than
+          overwhelming.
+        </p>
+
+        <span class="project-subhead">Key Contributions</span>
+        <ul class="project-highlights">
+          <li>Focused heavily on user experience and intuitive front-end design throughout the build.</li>
+          <li>Developed highly responsive and efficient user interfaces optimized for usability.</li>
+          <li>Structured layouts and interactions to reduce friction in the job-seeking workflow.</li>
+        </ul>
+
+        <div class="project-tools-row">
+          <span class="project-tools-label">Tools</span>
+          <span class="tool-chip">JavaScript</span>
+          <span class="tool-chip">HTML</span>
+          <span class="tool-chip">CSS</span>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project-block">
+        <span class="project-number">02 / Full-Stack Application</span>
+        <h2 class="project-name">Secure File Storage System</h2>
+        <p class="project-overview">
+          A backend and frontend web application built to handle, manage, and protect sensitive data,
+          with security treated as a core design constraint rather than an afterthought.
+        </p>
+
+        <span class="project-subhead">Key Contributions</span>
+        <ul class="project-highlights">
+          <li>Developed a secure file storage architecture spanning both client and server layers.</li>
+          <li>Implemented protocols for handling sensitive user data throughout the storage lifecycle.</li>
+          <li>Built safeguards to prevent unauthorized access to stored files and user information.</li>
+        </ul>
+
+        <div class="project-tools-row">
+          <span class="project-tools-label">Tools</span>
+          <span class="tool-chip">HTML</span>
+          <span class="tool-chip">CSS</span>
+          <span class="tool-chip">JavaScript</span>
+          <span class="tool-chip">PHP</span>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project-block">
+        <span class="project-number">03 / Data Science &amp; Machine Learning</span>
+        <h2 class="project-name">CapstoneB — Data Science &amp; Machine Learning Framework</h2>
+        <p class="project-overview">
+          An end-to-end data science and machine learning project designed to solve complex, real-world
+          analytical problems, carried from raw data through to a fully evaluated model.
+        </p>
+
+        <span class="project-subhead">Key Contributions</span>
+        <ul class="project-highlights">
+          <li>Performed rigorous data collection, cleaning, and preprocessing to prepare raw data for analysis.</li>
+          <li>Conducted exploratory data analysis (EDA) to extract meaningful insights and inform modeling decisions.</li>
+          <li>Designed, trained, and evaluated multiple machine learning algorithms to isolate the best-performing approach.</li>
+          <li>Applied standard performance metrics and data visualizations to ensure model interpretability.</li>
+        </ul>
+
+        <div class="project-tools-row">
+          <span class="project-tools-label">Tools</span>
+          <span class="tool-chip">Python</span>
+          <span class="tool-chip">Pandas</span>
+          <span class="tool-chip">NumPy</span>
+          <span class="tool-chip">Scikit-learn</span>
+          <span class="tool-chip">Matplotlib</span>
+          <span class="tool-chip">Jupyter Notebook</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Maliha Tabassum. Built with care for research and clarity.</div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>
