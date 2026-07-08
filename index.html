@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maliha Tabassum — Research Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #FBF3E9;
+    --paper-dim: #F3E2CB;
+    --ink: #3B2A20;
+    --ink-soft: #8A6E56;
+    --line: #E7CFAC;
+    --forest: #BD5A2E;
+    --forest-deep: #7C3416;
+    --gold: #C99958;
+    --white: #FFFFFF;
+    --radius: 2px;
+    --maxw: 980px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', -apple-system, sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Source Serif 4', Georgia, serif;
+    font-weight:600;
+    margin:0;
+    color:var(--forest-deep);
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  section{padding:64px 0;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:10px;
+    display:block;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,248,243,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .nav-brand{ display:flex; align-items:center; gap:10px; }
+  .nav-avatar{
+    width:34px; height:34px; border-radius:50%;
+    overflow:hidden; flex-shrink:0;
+    border:2px solid var(--gold);
+  }
+  .nav-avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .nav-name{
+    font-family:'Source Serif 4', serif;
+    font-weight:600;
+    font-size:19px;
+    color:var(--forest-deep);
+    letter-spacing:0.01em;
+  }
+  .nav-links{
+    display:flex; gap:32px; list-style:none; margin:0; padding:0;
+    font-size:14.5px; font-weight:500;
+  }
+  .nav-links a{
+    color:var(--ink-soft);
+    padding:4px 2px;
+    border-bottom:1px solid transparent;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .nav-links a:hover, .nav-links a.active{ color:var(--forest); border-color:var(--gold); }
+  .nav-toggle{ display:none; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:96px 0 72px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:48px;
+  }
+  .hero-text{ flex:1; min-width:0; }
+  .hero-photo-wrap{
+    flex-shrink:0;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    padding:6px;
+    background:linear-gradient(145deg, var(--gold), var(--forest));
+    box-shadow:0 12px 28px rgba(124,52,22,0.18);
+  }
+  .hero-photo{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    overflow:hidden;
+    border:4px solid var(--paper);
+  }
+  .hero-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .hero-name{
+    font-size:clamp(42px, 6vw, 68px);
+    line-height:1.05;
+    letter-spacing:-0.01em;
+  }
+  .hero-role{
+    margin-top:14px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14.5px;
+    color:var(--ink-soft);
+    letter-spacing:0.02em;
+  }
+  .hero-role strong{ color:var(--forest); font-weight:600; }
+  .hero-rule{
+    width:64px; height:3px; background:var(--gold);
+    margin:26px 0 30px;
+  }
+  .hero-bio{
+    max-width:680px;
+    font-size:17px;
+    color:var(--ink);
+  }
+  .hero-links{
+    margin-top:28px;
+    display:flex; gap:22px; flex-wrap:wrap;
+    font-size:14px;
+    font-family:'IBM Plex Mono', monospace;
+  }
+  .hero-links a{
+    border-bottom:1px solid var(--line);
+    padding-bottom:2px;
+    color:var(--forest-deep);
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .hero-links a:hover{ border-color:var(--gold); color:var(--gold); }
+
+  /* ---------- Research Interests ---------- */
+  .interests{ border-bottom:1px solid var(--line); }
+  .interests-body{
+    max-width:700px;
+    font-size:16.5px;
+    color:var(--ink);
+    margin-bottom:26px;
+  }
+  .tag-row{ display:flex; flex-wrap:wrap; gap:10px; }
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    padding:7px 13px;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    color:var(--forest-deep);
+    background:var(--white);
+  }
+
+  /* ---------- Projects ---------- */
+  .projects{ border-bottom:1px solid var(--line); }
+  .project-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:22px;
+    margin-top:8px;
+  }
+  .project-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-top:3px solid var(--forest);
+    padding:24px 22px;
+    display:flex; flex-direction:column;
+  }
+  .project-card h3{
+    font-size:19px;
+    margin-bottom:10px;
+  }
+  .project-card p{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    flex-grow:1;
+    margin:0 0 16px;
+  }
+  .project-tools{
+    display:flex; flex-wrap:wrap; gap:6px;
+  }
+  .tool-chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    padding:4px 8px;
+    background:var(--paper-dim);
+    color:var(--ink-soft);
+    border-radius:var(--radius);
+  }
+
+  /* ---------- Recent News (timeline) ---------- */
+  .news{ border-bottom:1px solid var(--line); }
+  .timeline{
+    position:relative;
+    margin-top:12px;
+    padding-left:28px;
+  }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:5px; top:6px; bottom:6px;
+    width:1px;
+    background:var(--line);
+  }
+  .timeline-item{
+    position:relative;
+    padding-bottom:34px;
+  }
+  .timeline-item:last-child{ padding-bottom:0; }
+  .timeline-item::before{
+    content:"";
+    position:absolute;
+    left:-28px; top:5px;
+    width:11px; height:11px;
+    border-radius:50%;
+    background:var(--paper);
+    border:2px solid var(--gold);
+  }
+  .timeline-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--gold);
+    letter-spacing:0.03em;
+    margin-bottom:6px;
+    display:block;
+  }
+  .timeline-item h3{
+    font-size:17px;
+    margin-bottom:6px;
+  }
+  .timeline-item p{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    margin:0;
+    max-width:620px;
+  }
+
+  /* ---------- Split: Skills | Contact ---------- */
+  .split{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:0;
+  }
+  .split-col{ padding:64px 40px; }
+  .split-col:first-child{
+    border-right:1px solid var(--line);
+    padding-left:0;
+  }
+  .split-col:last-child{ padding-right:0; }
+
+  .skill-group{ margin-bottom:26px; }
+  .skill-group:last-child{ margin-bottom:0; }
+  .skill-group h3{
+    font-size:13px;
+    font-family:'IBM Plex Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+    font-weight:500;
+    margin-bottom:12px;
+  }
+  .skill-tags{ display:flex; flex-wrap:wrap; gap:8px; }
+  .skill-tag{
+    font-size:13.5px;
+    padding:6px 12px;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    color:var(--ink);
+  }
+
+  .contact-list{ list-style:none; margin:0; padding:0; }
+  .contact-list li{
+    display:flex;
+    flex-direction:column;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .contact-list li:last-child{ border-bottom:none; }
+  .contact-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+    margin-bottom:5px;
+  }
+  .contact-value{ font-size:15px; color:var(--forest-deep); font-weight:500; }
+  .contact-value a:hover{ color:var(--gold); }
+
+  footer{
+    padding:30px 0;
+    text-align:center;
+    font-size:13px;
+    color:var(--ink-soft);
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  h2.section-title{ font-size:28px; margin-bottom:18px; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 760px){
+    .nav-links{
+      position:fixed; top:60px; right:0; left:0;
+      background:var(--paper);
+      flex-direction:column;
+      gap:0;
+      border-bottom:1px solid var(--line);
+      max-height:0; overflow:hidden;
+      transition:max-height .25s ease;
+    }
+    .nav-links.open{ max-height:240px; }
+    .nav-links li{ border-top:1px solid var(--line); }
+    .nav-links a{ display:block; padding:14px 28px; }
+    .nav-toggle{
+      display:block;
+      background:none; border:1px solid var(--line);
+      font-family:'IBM Plex Mono', monospace;
+      font-size:12px; padding:6px 10px; cursor:pointer;
+      color:var(--forest-deep);
+    }
+    .project-grid{ grid-template-columns:1fr; }
+    .split{ grid-template-columns:1fr; }
+    .split-col:first-child{ border-right:none; border-bottom:1px solid var(--line); padding-right:0; }
+    .split-col:last-child{ padding-left:0; }
+    .hero{ padding:64px 0 48px; }
+    .hero-grid{ flex-direction:column-reverse; text-align:center; gap:28px; }
+    .hero-photo-wrap{ width:160px; height:160px; }
+    .hero-links{ justify-content:center; }
+    .hero-rule{ margin-left:auto; margin-right:auto; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap nav">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-avatar"><img src="assets/profile.png" alt=""></span>
+      <span class="nav-name">Maliha Tabassum</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">Menu</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#home" class="active">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="index.html#news">Publications</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Hero / Bio -->
+  <section id="home" class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <span class="eyebrow">Research Portfolio</span>
+        <h1 class="hero-name">Maliha Tabassum</h1>
+        <div class="hero-role">
+          Research Assistant, <strong>NEXT GENERATION AI RESEARCH CENTRE (NGAIRC)</strong> — Dhaka, Bangladesh
+        </div>
+        <div class="hero-rule"></div>
+        <p class="hero-bio">
+          I am a Research Assistant at the Next Generation AI Research Centre (NGAIRC), working under the
+          supervision of Dr. Mohammad Manzurul Islam and Dr. Abdullah Chowdhury since September 2025. I am
+          currently completing my BSc in Computer Science and Engineering at East West University
+          (July 2022 – July 2026). My work sits at the intersection of machine learning and applied data
+          systems, with a growing focus on building models that are not only accurate but explainable.
+        </p>
+        <div class="hero-links">
+          <a href="mailto:csemaliha@gmail.com">csemaliha@gmail.com</a>
+          <a href="https://github.com/csemaliha" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/maliha-tabassum-09125a220/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo">
+          <img src="assets/profile.png" alt="Portrait of Maliha Tabassum">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Interests -->
+  <section class="interests">
+    <div class="wrap">
+      <span class="eyebrow">Focus Areas</span>
+      <h2 class="section-title">Research Interests</h2>
+      <p class="interests-body">
+        My research centers on Explainable Artificial Intelligence (XAI) — developing techniques that make
+        machine learning models more transparent and interpretable to the people who rely on them. Alongside
+        this, I work on IoT security, data processing pipelines, and end-to-end machine learning workflows,
+        with an emphasis on translating raw, messy data into reliable, well-understood systems.
+      </p>
+      <div class="tag-row">
+        <span class="tag">Explainable AI (XAI)</span>
+        <span class="tag">IoT Security</span>
+        <span class="tag">Data Processing</span>
+        <span class="tag">Machine Learning Workflows</span>
+        <span class="tag">Model Transparency</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="projects">
+    <div class="wrap">
+      <span class="eyebrow">Selected Work</span>
+      <h2 class="section-title">Projects</h2>
+      <p style="margin:0 0 26px; font-size:14.5px;">
+        <a href="projects.html" style="border-bottom:1px solid var(--line); padding-bottom:2px; color:var(--forest-deep); font-family:'IBM Plex Mono', monospace;">View full project details →</a>
+      </p>
+      <div class="project-grid">
+
+        <div class="project-card">
+          <h3>JobGenie</h3>
+          <p>
+            A job-matching platform built with a focus on front-end design and intuitive user interfaces,
+            aimed at making the job search experience simple and approachable for end users.
+          </p>
+          <div class="project-tools">
+            <span class="tool-chip">JavaScript</span>
+            <span class="tool-chip">HTML</span>
+            <span class="tool-chip">CSS</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>Secure File Storage System</h3>
+          <p>
+            A web application designed around the secure handling of sensitive data, covering authentication,
+            encrypted storage, and controlled file access for end users.
+          </p>
+          <div class="project-tools">
+            <span class="tool-chip">HTML</span>
+            <span class="tool-chip">CSS</span>
+            <span class="tool-chip">JavaScript</span>
+            <span class="tool-chip">PHP</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>CapstoneB</h3>
+          <p>
+            An end-to-end machine learning project spanning data collection, preprocessing, exploratory data
+            analysis, and model deployment, built as a complete pipeline from raw data to a working model.
+          </p>
+          <div class="project-tools">
+            <span class="tool-chip">Python</span>
+            <span class="tool-chip">Pandas</span>
+            <span class="tool-chip">NumPy</span>
+            <span class="tool-chip">Scikit-learn</span>
+            <span class="tool-chip">Matplotlib</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent News -->
+  <section id="news" class="news">
+    <div class="wrap">
+      <span class="eyebrow">Timeline</span>
+      <h2 class="section-title">Recent News</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <span class="timeline-date">July 2026 (Expected)</span>
+          <h3>Graduating from East West University</h3>
+          <p>Expected to complete my BSc in Computer Science and Engineering (CSE) at East West University.</p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-date">2025 – Present</span>
+          <h3>Advancing Research at NGAIRC</h3>
+          <p>
+            Continuing research on explainable AI and IoT security under the supervision of
+            Dr. Mohammad Manzurul Islam and Dr. Abdullah Chowdhury at the Next Generation AI Research Centre.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-date">September 2025</span>
+          <h3>Joined NGAIRC as a Research Assistant</h3>
+          <p>
+            Began working at the Next Generation AI Research Centre (NGAIRC), focusing on explainable AI
+            techniques and applied machine learning workflows.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills | Contact -->
+  <section id="contact">
+    <div class="wrap split">
+
+      <div class="split-col">
+        <span class="eyebrow">Toolkit</span>
+        <h2 class="section-title">Skills</h2>
+
+        <div class="skill-group">
+          <h3>Concepts &amp; Fields</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Data Annotation</span>
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">Artificial Intelligence</span>
+            <span class="skill-tag">Data Processing</span>
+            <span class="skill-tag">Data Analysis</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Languages &amp; Libraries</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python (NumPy, Pandas, Scikit-learn)</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">C</span>
+            <span class="skill-tag">C++</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Data &amp; Visualization</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Jupyter Notebooks</span>
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">Tableau</span>
+            <span class="skill-tag">MS Excel</span>
+            <span class="skill-tag">Git</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="split-col">
+        <span class="eyebrow">Get in Touch</span>
+        <h2 class="section-title">Contact Information</h2>
+        <ul class="contact-list">
+          <li>
+            <span class="contact-label">Email</span>
+            <span class="contact-value"><a href="mailto:csemaliha@gmail.com">csemaliha@gmail.com</a></span>
+          </li>
+          <li>
+            <span class="contact-label">Location</span>
+            <span class="contact-value">Dhaka, Bangladesh</span>
+          </li>
+          <li>
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value"><a href="https://github.com/csemaliha" target="_blank" rel="noopener">github.com/csemaliha</a></span>
+          </li>
+          <li>
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value"><a href="https://www.linkedin.com/in/maliha-tabassum-09125a220/" target="_blank" rel="noopener">linkedin.com/in/maliha-tabassum</a></span>
+          </li>
+          <li>
+            <span class="contact-label">Affiliation</span>
+            <span class="contact-value">NGAIRC · East West University</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Maliha Tabassum. Built with care for research and clarity.</div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>
